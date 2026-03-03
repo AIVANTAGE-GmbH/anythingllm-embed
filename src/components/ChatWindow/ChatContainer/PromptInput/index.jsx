@@ -74,6 +74,7 @@ export default function PromptInput({
                 }}
                 rows={1}
                 value={message}
+                style={inputDisabled ? { alignContent: "normal" } : undefined}
                 className="allm-font-sans allm-border-none allm-cursor-text allm-max-h-[100px] allm-text-[14px] allm-mx-2 allm-py-2 allm-w-full allm-text-black allm-bg-transparent placeholder:allm-text-slate-800/60 allm-resize-none active:allm-outline-none focus:allm-outline-none allm-flex-grow allm-content-center"
                 placeholder={settings.sendMessageText || t("chat.send-message")}
                 id="message-input"
@@ -82,16 +83,16 @@ export default function PromptInput({
                 ref={formRef}
                 type="submit"
                 disabled={buttonDisabled}
-                className="allm-bg-transparent allm-border-none allm-inline-flex allm-justify-center allm-rounded-2xl allm-cursor-pointer allm-text-black group"
+                className="allm-bg-transparent allm-border-none allm-inline-flex allm-items-center allm-justify-center allm-rounded-2xl allm-cursor-pointer allm-text-black group allm-my-3"
                 id="send-message-button"
                 aria-label="Send message"
               >
                 {buttonDisabled ? (
-                  <CircleNotch className="allm-w-4 allm-h-4 allm-animate-spin" />
+                  <CircleNotch className="allm-w-6 allm-h-6 allm-animate-spin" />
                 ) : (
                   <PaperPlaneRight
                     size={24}
-                    className="allm-my-3 allm-text-[#22262899]/60 group-hover:allm-text-[#22262899]/90"
+                    className="allm-text-[#22262899]/60 group-hover:allm-text-[#22262899]/90"
                     weight="fill"
                   />
                 )}
