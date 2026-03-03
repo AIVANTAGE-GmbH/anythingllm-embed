@@ -79,6 +79,8 @@ REQUIRED data attributes:
 
 - `data-greeting` — Default text message to be shown when chat is opened and no previous message history is found.
 
+- `data-no-greeting` — Setting this attribute to anything will hide the greeting container (greeting text and suggested messages) shown when the chat has no history.
+
 - `data-no-sponsor` — Setting this attribute to anything will hide the custom or default sponsor at the bottom of an open chat window.
 
 - `data-header-displayed` — Setting this attribute shows the header above the chat window. Header is hidden by default.
