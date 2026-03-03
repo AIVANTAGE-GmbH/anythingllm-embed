@@ -1,12 +1,13 @@
 import ChatService from "@/models/chatService";
 import { useTranslation } from "react-i18next";
 
-export default function ResetChat({ setChatHistory, settings, sessionId }) {
+export default function ResetChat({ setChatHistory, settings, sessionId, resetSessionId }) {
   const { t } = useTranslation();
 
   const handleChatReset = async () => {
     await ChatService.resetEmbedChatSession(settings, sessionId);
     setChatHistory([]);
+    resetSessionId();
   };
 
   return (

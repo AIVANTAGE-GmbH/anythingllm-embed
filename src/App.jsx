@@ -7,7 +7,7 @@ import i18next from "@/i18n";
 
 export default function App() {
   const embedSettings = useGetScriptAttributes();
-  const sessionId = useSessionId();
+  const { sessionId, resetSessionId } = useSessionId();
 
   if (!embedSettings.loaded) return null;
 
@@ -24,7 +24,7 @@ export default function App() {
           width: "100%",
         }}
       >
-        <ChatWindow settings={embedSettings} sessionId={sessionId} />
+        <ChatWindow settings={embedSettings} sessionId={sessionId} resetSessionId={resetSessionId} />
       </div>
     </I18nextProvider>
   );

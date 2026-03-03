@@ -14,6 +14,7 @@ export default function ChatWindowHeader({
   settings = {},
   iconUrl = null,
   setChatHistory,
+  resetSessionId,
 }) {
   const [showingOptions, setShowOptions] = useState(false);
   const menuRef = useRef();
@@ -22,6 +23,7 @@ export default function ChatWindowHeader({
   const handleChatReset = async () => {
     await ChatService.resetEmbedChatSession(settings, sessionId);
     setChatHistory([]);
+    resetSessionId();
     setShowOptions(false);
   };
   useEffect(() => {

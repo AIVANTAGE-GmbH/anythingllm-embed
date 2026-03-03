@@ -1,7 +1,4 @@
-import useSessionId from "@/hooks/useSessionId";
-
-export default function SessionId() {
-  const sessionId = useSessionId();
+export default function SessionId({ sessionId }) {
   if (!sessionId) return null;
 
   return (
