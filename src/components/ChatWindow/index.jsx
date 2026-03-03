@@ -15,12 +15,14 @@ export default function ChatWindow({ settings, sessionId }) {
   if (loading) {
     return (
       <div className="allm-flex allm-flex-col allm-h-full">
-        <ChatWindowHeader
-          sessionId={sessionId}
-          settings={settings}
-          iconUrl={settings.brandImageUrl}
-          setChatHistory={setChatHistory}
-        />
+        {settings.headerDisplayed && (
+          <ChatWindowHeader
+            sessionId={sessionId}
+            settings={settings}
+            iconUrl={settings.brandImageUrl}
+            setChatHistory={setChatHistory}
+          />
+        )}
         <ChatHistoryLoading />
         <div className="allm-pt-4 allm-pb-2 allm-h-fit allm-gap-y-1">
           <SessionId />
@@ -34,7 +36,7 @@ export default function ChatWindow({ settings, sessionId }) {
 
   return (
     <div className="allm-flex allm-flex-col allm-h-full">
-      {!settings.noHeader && (
+      {settings.headerDisplayed && (
         <ChatWindowHeader
           sessionId={sessionId}
           settings={settings}

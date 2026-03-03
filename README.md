@@ -81,7 +81,7 @@ REQUIRED data attributes:
 
 - `data-no-sponsor` — Setting this attribute to anything will hide the custom or default sponsor at the bottom of an open chat window.
 
-- `data-no-header` — Setting this attribute hides the header above the chat window.
+- `data-header-displayed` — Setting this attribute shows the header above the chat window. Header is hidden by default.
 
 - `data-sponsor-link` — A clickable link in the sponsor section in the footer of an open chat window.
 

@@ -27,7 +27,7 @@ const DEFAULT_SETTINGS = {
   windowHeight: null, // height of chat window in number:css-prefix
   windowWidth: null, // width of chat window in number:css-prefix
   textSize: null, // text size in px (number only)
-  noHeader: null, // If set, hide the header above the chatbox
+  headerDisplayed: null, // If set, show the header above the chatbox
   language: "en", // language of chat interface
   sendMessageText: null, // override text for send message button
   resetChatText: null, // override text for reset chat button
