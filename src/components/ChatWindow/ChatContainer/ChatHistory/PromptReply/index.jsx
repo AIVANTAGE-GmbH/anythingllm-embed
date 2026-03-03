@@ -55,7 +55,7 @@ const PromptReply = forwardRef(
     // Extract content between think tags if they exist
     const thinkMatches = reply?.match(/<think>([\s\S]*?)<\/think>/g) || [];
     const thoughts = thinkMatches.map((match) =>
-      match.replace(/<\/?think>/g, "").trim()
+      match.replace(/<\/?think>/g, "").trim(),
     );
 
     const hasIncompleteThinkTag =
@@ -127,7 +127,8 @@ const PromptReply = forwardRef(
               <div className="allm-flex allm-gap-x-5">
                 <span className="allm-inline-block allm-p-2 allm-rounded-lg allm-bg-red-50 allm-text-red-500">
                   <Warning className="allm-h-4 allm-w-4 allm-mb-1 allm-inline-block" />{" "}
-                  Could not respond to message.
+                  {embedderSettings.settings.errorMessage ||
+                    "Could not respond to message."}
                   <span className="allm-text-xs">Server error</span>
                 </span>
               </div>
@@ -180,7 +181,7 @@ const PromptReply = forwardRef(
         )}
       </div>
     );
-  }
+  },
 );
 
 export default memo(PromptReply);

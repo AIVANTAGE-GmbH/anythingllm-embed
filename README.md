@@ -109,6 +109,10 @@ REQUIRED data attributes:
 
 - `data-reset-chat-text` — Override the text shown on the reset chat button.
 
+- `data-error-message` — Override the generic error text shown when the assistant cannot respond. Default: `"Could not respond to message."`
+
+- `data-rate-limit-reached-message` — Override the error detail message shown when the backend returns a 429 (rate limit exceeded) response. If not set, the original message from the backend is displayed.
+
 **Behavior Overrides**
 
 - `data-open-on-load` — Once loaded, open the chat as default. It can still be closed by the user. To enable set this attribute to `on`. All other values will be ignored.

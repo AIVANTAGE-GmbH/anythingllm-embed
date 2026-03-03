@@ -10,10 +10,7 @@ import { initI18n } from "./i18n.js";
 const currentScript = document.currentScript;
 const appElement = currentScript?.parentElement || document.body;
 
-const scriptSettings = Object.assign(
-  {},
-  currentScript?.dataset || {}
-);
+const scriptSettings = Object.assign({}, currentScript?.dataset || {});
 
 export const embedderSettings = {
   settings: scriptSettings,
@@ -35,5 +32,5 @@ const root = ReactDOM.createRoot(appElement);
 root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
 );

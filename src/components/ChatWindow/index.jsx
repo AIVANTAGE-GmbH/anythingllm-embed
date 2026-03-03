@@ -9,7 +9,7 @@ import ResetChat from "../ResetChat";
 export default function ChatWindow({ settings, sessionId }) {
   const { chatHistory, setChatHistory, loading } = useChatHistory(
     settings,
-    sessionId
+    sessionId,
   );
 
   if (loading) {
@@ -72,7 +72,7 @@ function copyCodeSnippet(uuid) {
 
   const markdown =
     target.parentElement?.parentElement?.querySelector(
-      "pre:first-of-type"
+      "pre:first-of-type",
     )?.innerText;
   if (!markdown) return false;
 

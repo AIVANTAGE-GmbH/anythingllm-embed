@@ -46,7 +46,7 @@ const HistoricalMessage = forwardRef(
       errorMsg = null,
       sentAt,
     },
-    ref
+    ref,
   ) => {
     const textSize = !!embedderSettings.settings.textSize
       ? `allm-text-[${embedderSettings.settings.textSize}px]`
@@ -56,7 +56,7 @@ const HistoricalMessage = forwardRef(
     // Extract content between think tags if they exist
     const thinkMatches = message?.match(/<think>([\s\S]*?)<\/think>/g) || [];
     const thoughts = thinkMatches.map((match) =>
-      match.replace(/<think>|<\/think>/g, "").trim()
+      match.replace(/<think>|<\/think>/g, "").trim(),
     );
 
     // Get the response content without the think tags
@@ -108,7 +108,8 @@ const HistoricalMessage = forwardRef(
                 <div className="allm-p-2 allm-rounded-lg allm-bg-red-50 allm-text-red-500">
                   <span className="allm-inline-block">
                     <Warning className="allm-h-4 allm-w-4 allm-mb-1 allm-inline-block" />{" "}
-                    Could not respond to message.
+                    {embedderSettings.settings.errorMessage ||
+                      "Could not respond to message."}
                   </span>
                   <p className="allm-text-xs allm-font-mono allm-mt-2 allm-border-l-2 allm-border-red-500 allm-pl-2 allm-bg-red-300 allm-p-2 allm-rounded-sm">
                     {errorMsg || "Server error"}
@@ -123,7 +124,7 @@ const HistoricalMessage = forwardRef(
                     className={`allm-whitespace-pre-line allm-flex allm-flex-col allm-gap-y-1 ${textSize} allm-leading-[20px]`}
                     dangerouslySetInnerHTML={{
                       __html: DOMPurify.sanitize(
-                        renderMarkdown(responseContent || message)
+                        renderMarkdown(responseContent || message),
                       ),
                     }}
                   />
@@ -142,7 +143,7 @@ const HistoricalMessage = forwardRef(
         )}
       </div>
     );
-  }
+  },
 );
 
 export default memo(HistoricalMessage);

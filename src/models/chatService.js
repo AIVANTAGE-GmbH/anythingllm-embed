@@ -1,5 +1,6 @@
 import { fetchEventSource } from "@microsoft/fetch-event-source";
 import { v4 } from "uuid";
+import { embedderSettings } from "@/main";
 
 const ChatService = {
   embedSessionHistory: async function (embedSettings, sessionId) {
@@ -57,6 +58,12 @@ const ChatService = {
           await response
             .json()
             .then((serverResponse) => {
+              if (
+                response.status === 429 &&
+                embedderSettings.settings.rateLimitReachedMessage
+              )
+                serverResponse.errorMsg =
+                  embedderSettings.settings.rateLimitReachedMessage;
               handleChat(serverResponse);
             })
             .catch(() => {

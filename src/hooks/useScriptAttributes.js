@@ -18,8 +18,8 @@ const DEFAULT_SETTINGS = {
   buttonColor: "#262626", // must be hex color code
   userBgColor: "#2C2F35", // user text bubble color
   assistantBgColor: "#2563eb", // assistant text bubble color
-  noGreeting: null, // Hides the greeting container when chat is empty
-  noSponsor: null, // Shows sponsor in footer of chat
+  noGreeting: true, // Hides the greeting container when chat is empty
+  noSponsor: true, // Shows sponsor in footer of chat
   sponsorText: "Powered by AnythingLLM", // default sponsor text
   sponsorLink: "https://anythingllm.com", // default sponsor link
   position: "bottom-right", // position of chat button/window
@@ -32,6 +32,8 @@ const DEFAULT_SETTINGS = {
   language: "en", // language of chat interface
   sendMessageText: null, // override text for send message button
   resetChatText: null, // override text for reset chat button
+  rateLimitReachedMessage: null, // override error message shown when rate limit (429) is hit
+  errorMessage: null, // override "Could not respond to message." error text
 
   // behaviors
   openOnLoad: "off", // or "on"
@@ -54,7 +56,7 @@ export default function useGetScriptAttributes() {
         !embedderSettings.settings.embedId
       )
         throw new Error(
-          "[AnythingLLM Embed Module::Abort] - Invalid script tag setup detected. Missing required parameters for boot!"
+          "[AnythingLLM Embed Module::Abort] - Invalid script tag setup detected. Missing required parameters for boot!",
         );
 
       setSettings({
@@ -84,7 +86,7 @@ const validations = {
         !list.every((v) => typeof v === "string" && v.length > 0)
       )
         throw new Error(
-          "Invalid default-messages attribute value. Must be array of strings"
+          "Invalid default-messages attribute value. Must be array of strings",
         );
       return list.map((v) => v.trim());
     } catch (e) {
