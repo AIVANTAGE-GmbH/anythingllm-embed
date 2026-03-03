@@ -6,6 +6,7 @@ import { v4 } from "uuid";
 const markdown = markdownIt({
   html: false,
   typographer: true,
+  linkify: true,
   highlight: function (code, lang) {
     const uuid = v4();
     if (lang && hljs.getLanguage(lang)) {
