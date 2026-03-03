@@ -4,9 +4,9 @@ export function formatDate(sentAt) {
   try {
     const date = new Date(sentAt * 1000);
     const timeString = date.toLocaleTimeString([], {
-      hour: "numeric",
+      hour: "2-digit",
       minute: "2-digit",
-      hour12: true,
+      hour12: false,
     });
     return timeString;
   } catch (e) {
