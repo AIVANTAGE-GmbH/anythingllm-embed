@@ -118,6 +118,16 @@ const customCss = `
   span.allm-whitespace-pre-line>p {
     margin: 0px;
   }
+
+  span.allm-whitespace-pre-line a,
+  span.allm-reply a {
+    color: #06689A;
+  }
+
+  span.allm-whitespace-pre-line a:hover,
+  span.allm-reply a:hover {
+    color: #C31A1A;
+  }
 `;
 
 export default function Head() {
