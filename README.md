@@ -99,7 +99,7 @@ REQUIRED data attributes:
 
 - `data-window-width` - Set the chat window width. **must include CSS suffix:** `px`,`%`,`rem`
 
-- `data-text-size` - Set the text size of the chats in pixels.
+- `data-font-size` - Set the font size (in pixels) for chat messages, the input field, and the reset chat button. Value should be a number without the `px` suffix (e.g. `data-font-size="16"`). Default is `14`.
 
 - `data-username` - A specific readable name or identifier for the client for your reference. Will be shown in AnythingLLM chat logs. If empty it will not be reported.
 

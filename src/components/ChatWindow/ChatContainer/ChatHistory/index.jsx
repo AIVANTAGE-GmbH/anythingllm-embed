@@ -51,7 +51,10 @@ export default function ChatHistory({ settings = {}, history = [] }) {
     return (
       <div className="allm-h-full allm-overflow-y-auto allm-px-2 allm-py-4 allm-flex allm-flex-col allm-justify-start allm-no-scroll">
         <div className="allm-flex allm-h-full allm-flex-col allm-items-center allm-justify-center">
-          <p className="allm-text-slate-400 allm-text-sm allm-font-sans allm-py-4 allm-text-center">
+          <p
+            style={settings?.fontSize ? { fontSize: `${settings.fontSize}px` } : undefined}
+            className="allm-text-slate-400 allm-text-sm allm-font-sans allm-py-4 allm-text-center"
+          >
             {settings?.greeting ?? "Send a chat to get started."}
           </p>
           <SuggestedMessages settings={settings} />
@@ -149,7 +152,7 @@ function SuggestedMessages({ settings }) {
             opacity: 0,
             wordBreak: "break-word",
             backgroundColor: embedderSettings.USER_STYLES.msgBg,
-            fontSize: settings.textSize,
+            fontSize: settings.fontSize ? `${settings.fontSize}px` : undefined,
           }}
           type="button"
           onClick={() => {

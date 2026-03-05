@@ -166,6 +166,7 @@ const PromptReply = forwardRef(
             )}
             <div className="allm-flex allm-gap-x-5">
               <span
+                style={embedderSettings.settings.fontSize ? { fontSize: `${embedderSettings.settings.fontSize}px` } : undefined}
                 className="allm-font-sans allm-reply allm-whitespace-pre-line allm-font-normal allm-text-sm allm-md:text-sm allm-flex allm-flex-col allm-gap-y-1"
                 dangerouslySetInnerHTML={{
                   __html: renderMarkdown(responseContent || ""),

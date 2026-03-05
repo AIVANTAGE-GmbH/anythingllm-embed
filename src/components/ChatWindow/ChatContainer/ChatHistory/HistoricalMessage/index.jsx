@@ -48,9 +48,9 @@ const HistoricalMessage = forwardRef(
     },
     ref,
   ) => {
-    const textSize = !!embedderSettings.settings.textSize
-      ? `allm-text-[${embedderSettings.settings.textSize}px]`
-      : "allm-text-sm";
+    const fontSize = embedderSettings.settings.fontSize
+      ? `${embedderSettings.settings.fontSize}px`
+      : null;
     if (error) console.error(`ANYTHING_LLM_CHAT_WIDGET_ERROR: ${error}`);
 
     // Extract content between think tags if they exist
@@ -121,7 +121,8 @@ const HistoricalMessage = forwardRef(
                     <ThoughtBubble thought={thoughts.join("\n\n")} />
                   )}
                   <span
-                    className={`allm-whitespace-pre-line allm-flex allm-flex-col allm-gap-y-1 ${textSize} allm-leading-[20px]`}
+                    style={fontSize ? { fontSize } : undefined}
+                    className="allm-whitespace-pre-line allm-flex allm-flex-col allm-gap-y-1 allm-text-sm allm-leading-[20px]"
                     dangerouslySetInnerHTML={{
                       __html: DOMPurify.sanitize(
                         renderMarkdown(responseContent || message),

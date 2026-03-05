@@ -74,7 +74,10 @@ export default function PromptInput({
                 }}
                 rows={1}
                 value={message}
-                style={inputDisabled ? { alignContent: "normal" } : undefined}
+                style={{
+                  ...(inputDisabled ? { alignContent: "normal" } : {}),
+                  ...(settings.fontSize ? { fontSize: `${settings.fontSize}px` } : {}),
+                }}
                 className="allm-font-sans allm-border-none allm-cursor-text allm-max-h-[100px] allm-text-[14px] allm-mx-2 allm-py-2 allm-w-full allm-text-black allm-bg-transparent placeholder:allm-text-slate-800/60 allm-resize-none active:allm-outline-none focus:allm-outline-none allm-flex-grow allm-content-center"
                 placeholder={settings.sendMessageText || t("chat.send-message")}
                 id="message-input"
