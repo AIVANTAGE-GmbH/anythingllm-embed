@@ -1,37 +1,12 @@
+import { useState } from "react";
 import ChatWindowHeader from "./Header";
-import SessionId from "../SessionId";
-import useChatHistory from "@/hooks/chat/useChatHistory";
 import ChatContainer from "./ChatContainer";
 import Sponsor from "../Sponsor";
-import { ChatHistoryLoading } from "./ChatContainer/ChatHistory";
 import ResetChat from "../ResetChat";
 
 export default function ChatWindow({ settings, sessionId, resetSessionId }) {
-  const { chatHistory, setChatHistory, loading } = useChatHistory(
-    settings,
-    sessionId,
-  );
-
-  if (loading) {
-    return (
-      <div className="allm-flex allm-flex-col allm-h-full">
-        {settings.headerDisplayed && (
-          <ChatWindowHeader
-            sessionId={sessionId}
-            settings={settings}
-            iconUrl={settings.brandImageUrl}
-            setChatHistory={setChatHistory}
-            resetSessionId={resetSessionId}
-          />
-        )}
-        <ChatHistoryLoading />
-        <div className="allm-pt-4 allm-pb-2 allm-h-fit allm-gap-y-1">
-          <SessionId sessionId={sessionId} />
-          <Sponsor settings={settings} />
-        </div>
-      </div>
-    );
-  }
+  // Every page load starts a fresh session, so there is no history to fetch.
+  const [chatHistory, setChatHistory] = useState([]);
 
   setEventDelegatorForCodeSnippets();
 
@@ -43,6 +18,7 @@ export default function ChatWindow({ settings, sessionId, resetSessionId }) {
           settings={settings}
           iconUrl={settings.brandImageUrl}
           setChatHistory={setChatHistory}
+          resetSessionId={resetSessionId}
         />
       )}
       <div className="allm-flex-grow allm-overflow-y-auto">

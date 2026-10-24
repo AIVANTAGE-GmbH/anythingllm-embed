@@ -3,27 +3,6 @@ import { v4 } from "uuid";
 import { embedderSettings } from "@/main";
 
 const ChatService = {
-  embedSessionHistory: async function (embedSettings, sessionId) {
-    const { embedId, baseApiUrl } = embedSettings;
-    return await fetch(`${baseApiUrl}/${embedId}/${sessionId}`)
-      .then((res) => {
-        if (res.ok) return res.json();
-        throw new Error("Invalid response from server");
-      })
-      .then((res) => {
-        return res.history.map((msg) => ({
-          ...msg,
-          id: v4(),
-          sender: msg.role === "user" ? "user" : "system",
-          textResponse: msg.content,
-          close: false,
-        }));
-      })
-      .catch((e) => {
-        console.error(e);
-        return [];
-      });
-  },
   resetEmbedChatSession: async function (embedSettings, sessionId) {
     const { baseApiUrl, embedId } = embedSettings;
     return await fetch(`${baseApiUrl}/${embedId}/${sessionId}`, {
