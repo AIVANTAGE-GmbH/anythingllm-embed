@@ -101,6 +101,8 @@ REQUIRED data attributes:
 
 - `data-font-size` - Set the font size (in pixels) for chat messages, the input field, and the reset chat button. Value should be a number without the `px` suffix (e.g. `data-font-size="16"`). Default is `14`.
 
+- `data-paragraph-margin` — Set the vertical gap between paragraphs in assistant responses (overrides the default gap). **Must include CSS suffix:** `px`, `rem`, `em` (e.g. `data-paragraph-margin="16px"`). If unset, the default gap is used.
+
 - `data-username` - A specific readable name or identifier for the client for your reference. Will be shown in AnythingLLM chat logs. If empty it will not be reported.
 
 - `data-default-messages` - A string of comma-separated messages you want to display to the user when the chat widget has no history. Example: `"How are you?, What is so interesting about this project?, Tell me a joke."`

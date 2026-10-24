@@ -28,6 +28,7 @@ const DEFAULT_SETTINGS = {
   windowHeight: null, // height of chat window in number:css-prefix
   windowWidth: null, // width of chat window in number:css-prefix
   fontSize: null, // font size in px (number only)
+  paragraphMargin: null, // margin-top between paragraphs in assistant responses
   headerDisplayed: null, // If set, show the header above the chatbox
   language: "en", // language of chat interface
   sendMessageText: null, // override text for send message button

@@ -121,7 +121,10 @@ const HistoricalMessage = forwardRef(
                     <ThoughtBubble thought={thoughts.join("\n\n")} />
                   )}
                   <span
-                    style={fontSize ? { fontSize } : undefined}
+                    style={{
+                      ...(fontSize ? { fontSize } : {}),
+                      ...(embedderSettings.settings.paragraphMargin ? { rowGap: embedderSettings.settings.paragraphMargin } : {}),
+                    }}
                     className="allm-whitespace-pre-line allm-flex allm-flex-col allm-gap-y-1 allm-text-sm allm-leading-[20px]"
                     dangerouslySetInnerHTML={{
                       __html: DOMPurify.sanitize(
